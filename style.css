@@ -303,6 +303,133 @@ body {
   color: var(--text-subtle);
 }
 
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: flex-end;
+  margin: 8px 0 10px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-group label {
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+}
+
+.filter-group input,
+.filter-group select {
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: var(--accent);
+}
+
+.ghost-btn {
+  background-color: transparent;
+  color: var(--accent-strong);
+  border-radius: 999px;
+  padding: 6px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 0.85rem;
+  box-shadow: none;
+}
+
+.ghost-btn:hover {
+  background-color: var(--accent-soft);
+}
+
+.tools-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-total {
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+}
+
+.filter-total-value {
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+
+.export-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.category-section {
+  border-radius: 12px;
+  padding: 8px 10px 6px;
+  background-color: rgba(0, 0, 0, 0.015);
+  border: 1px dashed rgba(0, 0, 0, 0.06);
+  margin-bottom: 10px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+}
+
+.category-title {
+  font-weight: 600;
+}
+
+#category-chart {
+  width: 100%;
+  max-height: 220px;
+}
+
+.budget-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.budget-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.budget-section .form-row {
+  flex: 1;
+}
+
+.budget-status {
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+  padding-top: 2px;
+}
+
+.budget-status.over {
+  color: var(--danger);
+  font-weight: 600;
+}
+
 .empty-state {
   font-size: 0.9rem;
   color: var(--text-subtle);

@@ -38,6 +38,28 @@
               </div>
             </section>
 
+            <section class="card budget-section">
+              <h2 class="section-title">本月預算</h2>
+              <div class="budget-row">
+                <div class="form-row">
+                  <label for="budget-amount">預算金額（本月）</label>
+                  <input
+                    type="number"
+                    id="budget-amount"
+                    min="0"
+                    step="1"
+                    placeholder="例如：20000"
+                  />
+                </div>
+                <button type="button" class="btn ghost-btn" id="save-budget">
+                  儲存預算
+                </button>
+              </div>
+              <div class="budget-status" id="budget-status">
+                尚未設定本月預算
+              </div>
+            </section>
+
             <section class="card form-section">
               <h2 class="section-title">新增支出</h2>
               <form id="expense-form" class="expense-form">
@@ -92,6 +114,81 @@
                   <span id="record-count">0 筆</span>
                 </div>
               </div>
+
+              <div class="filters-row">
+                <div class="filter-group">
+                  <label for="filter-start-date">起始日期</label>
+                  <input type="date" id="filter-start-date" />
+                </div>
+                <div class="filter-group">
+                  <label for="filter-end-date">結束日期</label>
+                  <input type="date" id="filter-end-date" />
+                </div>
+                <div class="filter-group">
+                  <label for="filter-category">分類</label>
+                  <select id="filter-category">
+                    <option value="all">全部</option>
+                    <option value="food">食物</option>
+                    <option value="transport">交通</option>
+                    <option value="entertainment">娛樂</option>
+                    <option value="shopping">購物</option>
+                    <option value="other">其他</option>
+                  </select>
+                </div>
+                <button type="button" id="clear-filters" class="btn ghost-btn">
+                  清除篩選
+                </button>
+              </div>
+
+              <div class="tools-row">
+                <div class="filter-total">
+                  目前篩選總額：
+                  <span id="filtered-total" class="filter-total-value">0</span>
+                  元
+                </div>
+                <div class="export-buttons">
+                  <button
+                    type="button"
+                    class="btn ghost-btn"
+                    id="export-csv-btn"
+                  >
+                    匯出 CSV
+                  </button>
+                  <button
+                    type="button"
+                    class="btn ghost-btn"
+                    id="export-json-btn"
+                  >
+                    匯出 JSON
+                  </button>
+                  <button
+                    type="button"
+                    class="btn ghost-btn"
+                    id="import-btn"
+                  >
+                    匯入檔案
+                  </button>
+                  <input
+                    type="file"
+                    id="import-file"
+                    accept=".json,.csv,text/csv,application/json"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+
+              <div class="category-section">
+                <div class="category-header">
+                  <span class="category-title">依分類統計</span>
+                </div>
+                <canvas
+                  id="category-chart"
+                  width="400"
+                  height="200"
+                  aria-label="依分類支出長條圖"
+                ></canvas>
+              </div>
+
               <div id="empty-state" class="empty-state">
                 目前還沒有支出記錄，從上方表單新增一筆吧！
               </div>
