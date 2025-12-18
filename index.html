@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>個人記帳小工具</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="header-left">
+          <h1 class="app-title">個人記帳小工具</h1>
+          <p class="app-subtitle">簡單記下每日支出</p>
+        </div>
+        <div class="header-right">
+          <label class="theme-label" for="theme-select">色系</label>
+          <select id="theme-select" class="theme-select">
+            <option value="sakura">櫻花粉</option>
+            <option value="mint">薄荷綠</option>
+            <option value="sky">天空藍</option>
+            <option value="lavender">薰衣草紫</option>
+          </select>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="layout-two-columns">
+          <div class="left-column">
+            <section class="stats-section">
+              <div class="card stat-card">
+                <div class="stat-label">本月總支出</div>
+                <div class="stat-value" id="month-total">0</div>
+              </div>
+              <div class="card stat-card">
+                <div class="stat-label">今日支出</div>
+                <div class="stat-value" id="today-total">0</div>
+              </div>
+            </section>
+
+            <section class="card form-section">
+              <h2 class="section-title">新增支出</h2>
+              <form id="expense-form" class="expense-form">
+                <div class="form-row">
+                  <label for="amount">金額</label>
+                  <input
+                    type="number"
+                    id="amount"
+                    min="1"
+                    step="1"
+                    required
+                    placeholder="例如：120"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label for="category">分類</label>
+                  <select id="category" required>
+                    <option value="food">食物</option>
+                    <option value="transport">交通</option>
+                    <option value="entertainment">娛樂</option>
+                    <option value="shopping">購物</option>
+                    <option value="other">其他</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="date">日期</label>
+                  <input type="date" id="date" required />
+                </div>
+
+                <div class="form-row">
+                  <label for="note">備註</label>
+                  <input
+                    type="text"
+                    id="note"
+                    maxlength="50"
+                    placeholder="可不填，例如：午餐、捷運..."
+                  />
+                </div>
+
+                <button type="submit" class="btn primary-btn">新增支出</button>
+              </form>
+            </section>
+          </div>
+
+          <div class="right-column">
+            <section class="card list-section">
+              <div class="list-header">
+                <h2 class="section-title">支出記錄</h2>
+                <div class="list-summary">
+                  <span id="record-count">0 筆</span>
+                </div>
+              </div>
+              <div id="empty-state" class="empty-state">
+                目前還沒有支出記錄，從上方表單新增一筆吧！
+              </div>
+              <ul id="expense-list" class="expense-list"></ul>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <span>資料僅儲存在此裝置的瀏覽器中（localStorage）</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+
